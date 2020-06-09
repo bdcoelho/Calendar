@@ -1,10 +1,16 @@
+var mainDateTime = (mainDateTime = moment().format("dddd, MMMM Do YYYY"));
+$("#currentDay").html("<b>" + mainDateTime + "</b>");
+
+var currentHour = moment().format("HH");
+console.log("The current hour is " + currentHour);
+
 for (let i = 0; i < 24; i++) {
   var hourInt = i + 1;
-
   var hourStr = hourInt.toString();
   var momentHour = moment(hourStr, "H").format("HH:mm");
 
   var inputGroup = $("<div id=iG" + i + " class='input-group'></div>");
+
   var inputGroupPrepend = $(
     "<div id=iGP" + i + " class='input-group-prepend'></div>"
   );

@@ -1,3 +1,6 @@
+$( document ).ready(function() {
+
+
 // Main time at top of page
 var mainDateTime = (mainDateTime = moment().format("dddd, MMMM Do YYYY"));
 $("#currentDay").html(mainDateTime);
@@ -61,3 +64,5 @@ for (let i = 9; i < 18; i++) {
       .append(inputGroupApnd.append(inputGroupBtn))
   );
 }
+
+})

@@ -38,12 +38,61 @@ for (let i = 9; i < 18; i++) {
     "<span id=iGT" + i + " class='input-group-text'></span>"
   ).text(momentHour);
 
+  var inputGroupApnd = $(
+    "<span id=iGA" + i + " class='input-group-append'></span>"
+  );
+
+  var inputGroupBtn = $(
+    "<button id=iGB" +
+      i +
+      " class='btn btn-light far fa-save' type='submit'></button>"
+  );
+
+  inputGroupBtn.attr("style", "background-color:  rgb(233, 236, 239)");
+
   $("#sub-container").append(
     inputGroup
       .append(inputGroupPrepend.append(inputGroupText))
       .append(inputGroupInput)
+      .append(inputGroupApnd.append(inputGroupBtn))
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // var inputGroup = $("<p class='input-group'>i</p>").text("Text.")
 

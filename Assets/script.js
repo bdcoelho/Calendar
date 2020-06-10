@@ -1,32 +1,38 @@
 var mainDateTime = (mainDateTime = moment().format("dddd, MMMM Do YYYY"));
-$("#currentDay").html("<b>" + mainDateTime + "</b>");
+$("#currentDay").html(mainDateTime);
 
 var currentHour = moment().format("HH");
 
-for (let i = 0; i < 24; i++) {
-  var hourInt = i + 1;
+for (let i = 9; i < 18; i++) {
+  var hourInt = i;
   var hourStr = hourInt.toString();
   var momentHour = moment(hourStr, "H").format("HH:mm");
 
-
-
-if(parseInt(currentHour)===hourInt){
-  var inputGroup = $("<div id=iG" + i + " class='input-group border border-danger'></div>");
-}
-else{
-  var inputGroup = $("<div id=iG" + i + " class='input-group'></div>");
-}
+  if (parseInt(currentHour) === hourInt) {
+    var inputGroup = $(
+      "<div id=iG" + i + " class='input-group border border-danger'></div>"
+    );
+  } else {
+    var inputGroup = $("<div id=iG" + i + " class='input-group'></div>");
+  }
 
   var inputGroupPrepend = $(
     "<div id=iGP" + i + " class='input-group-prepend'></div>"
   );
 
-
-  var inputGroupInput= $("<input id=iGI" + i + " type='text' class='form-control'></input>")
-  
   var inputGroupInput = $(
     "<input id=iGI" + i + " type='text' class='form-control'></input>"
   );
+
+  var inputGroupInput = $(
+    "<input id=iGI" + i + " type='text' class='form-control'></input>"
+  );
+
+  if (hourInt < parseInt(currentHour)) {
+    inputGroupInput.attr("style", "background-color: lightgray");
+  } else if (hourInt > parseInt(currentHour)) {
+    inputGroupInput.attr("style", "background-color: lightgreen");
+  }
 
   var inputGroupText = $(
     "<span id=iGT" + i + " class='input-group-text'></span>"

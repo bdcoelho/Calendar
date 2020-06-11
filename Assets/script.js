@@ -10,7 +10,7 @@ $(document).ready(function () {
   var currentHour = moment().format("HH");
 
   // for loop creates each of the input fields, hour labels, cave buttons for 9 am to 5 pm
-  for (let i = 8; i < 15; i++) {
+  for (let i = 8; i < 19; i++) {
     var hourInt = i;
     var hourStr = hourInt.toString();
     var momentHour = moment(hourStr, "H").format("HH:mm");
@@ -111,12 +111,10 @@ $(document).ready(function () {
   clearSched.addEventListener("click", function (event) {
 
 localStorage.clear()
-    
+location.reload()
 
   });
 });
 
 
 // look at multi line input
-// Add clear button 
-// if local storage != null, json parse and then render

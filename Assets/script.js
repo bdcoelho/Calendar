@@ -10,7 +10,7 @@ $(document).ready(function () {
   var currentHour = moment().format("HH");
 
   // for loop creates each of the input fields, hour labels, cave buttons for 9 am to 5 pm
-  for (let i = 0; i < 24; i++) {
+  for (let i = 8; i < 15; i++) {
     var hourInt = i;
     var hourStr = hourInt.toString();
     var momentHour = moment(hourStr, "H").format("HH:mm");
@@ -70,17 +70,20 @@ $(document).ready(function () {
 
   if (localStorage.getItem("storageData") !== null) {
     storageArray = JSON.parse(localStorage.getItem("storageData"));
-
+    for(let i=0; i<storageArray.length; i++){
+      var myElementName = storageArray[i].inputID;
+      var myText = storageArray[i].text;
+      var myElement = $("#"+myElementName);
+      myElement[0].value=myText
+      }
+      
+      
   };
+      
+
 
 // insert for loop here to re-render
 
-for(let i=0; i<storageArray.length; i++){
-var myElementName = storageArray[i].inputID;
-var myText = storageArray[i].text;
-var myElement = $("#"+myElementName);
-myElement[0].value=myText
-}
 
 
   var listEl = document.querySelector("#sub-container");
@@ -102,10 +105,18 @@ myElement[0].value=myText
 
     }
   });
+
+  var clearSched = document.querySelector("#clear-button");
+
+  clearSched.addEventListener("click", function (event) {
+
+localStorage.clear()
+    
+
+  });
 });
 
 
-// render back to page
 // look at multi line input
 // Add clear button 
 // if local storage != null, json parse and then render

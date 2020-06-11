@@ -50,6 +50,13 @@ textarea{
   margin-bottom: 5%;
 }
 
+
+.center-button{
+  margin-bottom: 2%;
+}
+
+
+
 .current-hour{
 border-bottom: red;
 }

@@ -1,4 +1,4 @@
-const storageArray = [];
+var storageArray = [];
 
 $(document).ready(function () {
 
@@ -69,10 +69,18 @@ $(document).ready(function () {
   //
 
   if (localStorage.getItem("storageData") !== null) {
-
-    storageArray = JSON.parse(localStorage.getItem("storageData"))
+    storageArray = JSON.parse(localStorage.getItem("storageData"));
 
   };
+
+// insert for loop here to re-render
+
+for(let i=0; i<storageArray.length; i++){
+var myElementName = storageArray[i].inputID;
+var myText = storageArray[i].text;
+var myElement = $("#"+myElementName);
+myElement[0].value=myText
+}
 
 
   var listEl = document.querySelector("#sub-container");
@@ -86,9 +94,10 @@ $(document).ready(function () {
       var textValue = textElement.value;
       if (textValue) {
         var localData = { inputID: inputID, text: textValue };
-        console.log(localData);
         storageArray.push(localData);
         localStorage.setItem("storageData", JSON.stringify(storageArray));
+        //maybe reload here
+
       }
 
     }

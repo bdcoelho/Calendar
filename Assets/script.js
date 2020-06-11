@@ -30,7 +30,7 @@ $(document).ready(function () {
     );
     // Create input text element for user to write down tasks
     var inputGroupInput = $(
-      "<input id=iGI" + i + " type='text' class='form-control'></input>"
+      "<textarea id=iGI" + i + " type='text' class='form-control'></textarea>"
     );
 
     // Format input text fields based on past, present or future time block

@@ -1,30 +1,22 @@
+// Global variable declaration
 var storageArray = [];
+var currentHour = moment().format("HH");
 
+// Ensure entire html is loaded before running js
 $(document).ready(function () {
+  // Run function to update live date time at an interval
+  setInterval(function () {
+    var mainDateTime = moment().format("dddd, MMMM Do YYYY HH:mm");
+    $("#currentDay").html(mainDateTime);
+  }, 1000);
 
-
-
-  
-
-
-
-setInterval(function(){
-  var mainDateTime = moment().format("dddd, MMMM Do YYYY HH:mm");
-  $("#currentDay").html(mainDateTime);
-}, 1000);
-
-
-
-  // get current hour - used to format table by past, current, future hour
-  var currentHour = moment().format("HH");
-
-  // for loop creates each of the input fields, hour labels, cave buttons for 9 am to 5 pm
+  // For loop creates each of the input fields, hour labels, cave buttons for 9 am to 5 pm
   for (let i = 8; i < 19; i++) {
     var hourInt = i;
     var hourStr = hourInt.toString();
     var momentHour = moment(hourStr, "H").format("HH:mm");
 
-    // create parent input group element - this element is highlighted with a red box if it is the current hour
+    // Create parent input group element - this element is highlighted with a red box if it is the current hour
     if (parseInt(currentHour) === hourInt) {
       var inputGroup = $(
         "<div id=iG" + i + " class='input-group border border-danger'></div>"
@@ -33,7 +25,7 @@ setInterval(function(){
       var inputGroup = $("<div id=iG" + i + " class='input-group'></div>");
     }
 
-    //Prepend the space to display time slot of the day
+    //Create element to prepend the space to display time slot of the day
     var inputGroupPrepend = $(
       "<div id=iGP" + i + " class='input-group-prepend'></div>"
     );
@@ -49,7 +41,7 @@ setInterval(function(){
       inputGroupInput.attr("style", "background-color: lightgreen");
     }
 
-    // Add text to element displaying time slot of the day
+    // Create text for element displaying time slot of the day
     var inputGroupText = $(
       "<span id=iGT" + i + " class='input-group-text'></span>"
     ).text(momentHour);
@@ -60,8 +52,8 @@ setInterval(function(){
     // Add save button
     var inputGroupBtn = $(
       "<button id=iGB" +
-      i +
-      " class='btn btn-light far fa-save' type='submit'></button>"
+        i +
+        " class='btn btn-light far fa-save' type='submit'></button>"
     );
     // Set save button color to same as time slot background color
     inputGroupBtn.attr("style", "background-color:  rgb(233, 236, 239)");
@@ -75,25 +67,20 @@ setInterval(function(){
     );
   }
 
-  //
+  // Retrieve previously stored data from local storage if it is present and render it into the form
 
   if (localStorage.getItem("storageData") !== null) {
     storageArray = JSON.parse(localStorage.getItem("storageData"));
-    for(let i=0; i<storageArray.length; i++){
+    for (let i = 0; i < storageArray.length; i++) {
       var myElementName = storageArray[i].inputID;
       var myText = storageArray[i].text;
-      var myElement = $("#"+myElementName);
-      myElement[0].value=myText
-      }
-      
-      
-  };
-      
+      var myElement = $("#" + myElementName);
+      myElement[0].value = myText;
+    }
+  }
 
-
-// insert for loop here to re-render
-
-
+  // Listen for click event on any of the save buttons and create a function to push new entries and
+  // changes to the storageData item in local storage
 
   var listEl = document.querySelector("#sub-container");
 
@@ -108,25 +95,28 @@ setInterval(function(){
         var localData = { inputID: inputID, text: textValue };
         storageArray.push(localData);
         localStorage.setItem("storageData", JSON.stringify(storageArray));
-        //maybe reload here
-
       }
-
     }
   });
 
+  // Add functionality for the 'Clear Schedule' button
+  // This will clear the form when the user chooses
   var clearSched = document.querySelector("#clear-button");
-
   clearSched.addEventListener("click", function (event) {
-
-localStorage.clear()
-location.reload()
-
+    localStorage.clear();
+    location.reload();
   });
 });
 
+// Refresh page at the start of every every hour to re-render time based formatting
+setInterval(function () {
+  var currentMinute = parseFloat(moment().format("mm"));
+  var currentSecond = parseFloat(moment().format("ss"));
+  if (currentMinute === 0 && currentSecond < 10) {
+    location.reload();
+  }
+}, 10000);
 
 
-// Add comments
 // Create readme
-// Show time
+

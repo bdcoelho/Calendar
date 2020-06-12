@@ -42,10 +42,10 @@ THEN the saved events persist
 Here are screenshots of the application in a medium-to-large vs small screen:
 
 ### Medium to large screen
-![Medium to Large](https://github.com/bdcoelho/Calendar/blob/master/assets/img/MediumToLarger.png "Medium to Large")
+![Medium to Large](https://github.com/bdcoelho/Calendar/blob/master/Assets/img/MediumToLarger.png "Medium to Large")
 
 ### Small screen
-![Small](https://github.com/bdcoelho/Calendar/blob/master/assets/img/Small.png "Small")
+![Small](https://github.com/bdcoelho/Calendar/blob/master/Assets/img/Small.png "Small")
 
 
 ## Future work

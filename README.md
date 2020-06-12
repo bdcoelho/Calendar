@@ -1,8 +1,8 @@
 # Work day scheduler
 
-The live app cab be accessed here: https://bdcoelho.github.io/Calendar/
+The live app can be accessed here: https://bdcoelho.github.io/Calendar/
 
-This is a simple work day scheduler that allows a user to enter tasks in hour long blocks. The tasks are saved on the browser's local storage and will not be lost on refresh or reopening of the browser. A live date and time up to the minute is displayed at the top of the page. The time display is refreshed at intervals of a second. This keeps the time current while limiting CPU usage. The scheduler interface is formatted to highlight the current, past and future hours. The page and formatting is automatically refreshed at the start of every hour. Most of the page content is generated live using javascript. This is done to facilitate the quick and easy implementation of the items under Future Work. A more efficient method of live formatting will be covered under Future Work. 
+This is a simple work day scheduler that allows a user to enter tasks in hour long blocks. The tasks are saved on the browser's local storage and will not be lost on refresh or reopening of the browser. A live date and time up to the minute is displayed at the top of the page. The time display is refreshed at intervals of a second. This keeps the time current while limiting CPU usage. The scheduler interface is formatted to highlight the current, past and future hours. The page and formatting is automatically refreshed at the start of every hour. A more efficient method of live formatting will be covered under Future Work. Most of the page content is generated live using javascript. This is done to facilitate the quick and easy implementation of the items under Future Work.
 
 ## Usage
 

@@ -1,4 +1,4 @@
-# Work day scheduler
+# Work Day Scheduler
 
 The live app can be accessed here: https://bdcoelho.github.io/Calendar/
 

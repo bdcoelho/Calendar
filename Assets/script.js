@@ -2,9 +2,18 @@ var storageArray = [];
 
 $(document).ready(function () {
 
-  // Main time at top of page
-  var mainDateTime = (mainDateTime = moment().format("dddd, MMMM Do YYYY"));
+
+
+  
+
+
+
+setInterval(function(){
+  var mainDateTime = moment().format("dddd, MMMM Do YYYY HH:mm");
   $("#currentDay").html(mainDateTime);
+}, 1000);
+
+
 
   // get current hour - used to format table by past, current, future hour
   var currentHour = moment().format("HH");
@@ -117,4 +126,7 @@ location.reload()
 });
 
 
-// look at multi line input
+
+// Add comments
+// Create readme
+// Show time
